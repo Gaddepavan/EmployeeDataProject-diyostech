@@ -1,0 +1,40 @@
+﻿@model List<Employedataproject.Models.Employee>
+@{
+}
+<h2 class="text-center"> List of Employees </h2>
+<div class="row">
+    <div class="col">
+        <a class="btn btn-block" asp-controller="EmployeeController" asp-action="create"> Create the Employee </a>
+    </div>
+    <div class="col">
+    </div>
+
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Empid</th>
+            <th>EmpName</th>
+            <th>Gender</th>
+            <th>DOB</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var a in Model)
+        {
+            <tr>
+                <td>@a.Empid</td>
+                <td>@a.EmpName</td>
+                <td>@a.Gender</td>
+                <td>@a.DOB</td>
+                <td>@a.Image</td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="EmployeeController" asp-action="edit" asp-route-id="a.Empid"> Edit</a>
+                    <a class="btn btn-primary" asp-controller="EmployeeController" asp-action="delet" asp-route-id="a.Empid"> Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
